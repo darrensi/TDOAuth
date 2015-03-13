@@ -72,6 +72,7 @@
 */
 + (NSURLRequest *)URLRequestForPath:(NSString *)unencodedPath
                      POSTParameters:(NSDictionary *)unencodedParameters
+                             scheme:(NSString *)scheme
                                host:(NSString *)host
                         consumerKey:(NSString *)consumerKey
                      consumerSecret:(NSString *)consumerSecret

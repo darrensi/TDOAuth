@@ -230,6 +230,7 @@ static NSString* timestamp() {
 
 + (NSURLRequest *)URLRequestForPath:(NSString *)unencodedPath
                      POSTParameters:(NSDictionary *)unencodedParameters
+                             scheme:(NSString *)scheme
                                host:(NSString *)host
                         consumerKey:(NSString *)consumerKey
                      consumerSecret:(NSString *)consumerSecret
@@ -245,7 +246,7 @@ static NSString* timestamp() {
                                               tokenSecret:tokenSecret];
 
     oauth->unencodedHostAndPathWithoutQuery = [host.lowercaseString stringByAppendingString:unencodedPath];
-    oauth->url = [[NSURL alloc] initWithScheme:@"https" host:host path:unencodedPath];
+    oauth->url = [[NSURL alloc] initWithScheme:scheme host:host path:unencodedPath];
     oauth->method = @"POST";
 
     NSMutableString *postbody = [oauth setParameters:unencodedParameters];
